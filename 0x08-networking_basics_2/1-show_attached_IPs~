@@ -1,0 +1,12 @@
+
+#!/bin/bash
+
+
+active_ips=$(ip -4 address show | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+
+if [ -z "$active_ips" ]; then
+  echo "No active IPv4 addresses found."
+else
+  echo "Active IPv4 addresses:"
+  echo "$active_ips"
+fi
